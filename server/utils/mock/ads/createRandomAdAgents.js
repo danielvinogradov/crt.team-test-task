@@ -15,7 +15,7 @@ const createRandomAdAgents = function ({ amount = 1 }) {
 
     for (let i = 0; i < amount; i++) {
         const agent = {
-            agent_id: nanoid(),
+            id: nanoid(),
             attributes: {
                 first_name: firstNames[getRandomNumberInRangeInclusive({ max: firstNames.length - 1 })],
                 last_name: lastNames[getRandomNumberInRangeInclusive({ max: lastNames.length - 1 })],

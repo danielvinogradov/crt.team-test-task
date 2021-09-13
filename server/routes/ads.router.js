@@ -12,7 +12,7 @@ const createRandomAds = require('../utils/mock/ads/createRandomAds');
  * - нормальный ответ
  */
 router.get('/', (req, res) => {
-    const RESPONSE_DELAY = 3000; // задержка серверного ответа в миллисекундах
+    const RESPONSE_DELAY = 1000; // задержка серверного ответа в миллисекундах
     const DEFAULT_ADS_AMOUNT = 10; // столько объявлений вернет сервер, если не будет передан параметр amount
 
     const adsAmount = req.query?.amount || DEFAULT_ADS_AMOUNT;
@@ -21,8 +21,8 @@ router.get('/', (req, res) => {
         /**
          * Рандомное число от 0 до 2.
          * В случае 0 сервер вернет ошибку
-         * В случае 1 сервер вернет пустой массив объявлений
-         * В случае 2 сервер вернет нормальный массив
+         * В случае 1 сервер вернет нормальный массив
+         * В случае 2 сервер вернет пустой массив объявлений
          * @type {number}
          */
         const pseudoStatus = getRandomNumberInRangeInclusive({ max: 2 })
@@ -40,6 +40,29 @@ router.get('/', (req, res) => {
         }
 
     }, RESPONSE_DELAY)
+})
+
+/**
+ * Обновление статуса лайка на отдельном объявлении
+ */
+router.put('/like', (req, res) => {
+    const adID = req.query.hasOwnProperty('id') && req.query.id; // id объявления, которому надо поставить лайк
+
+    if (Math.random() > 0.2) { // Math.random() > 0.2 добавлен, чтобы потестировать ситуацию если сервер вернет ошибку
+        res.status(500).json({
+            status: 'error',
+            message: 'Ошибка сервера.'
+        })
+    } else if (adID) {
+        res.json({
+            status: 'success'
+        })
+    } else {
+        res.json({
+            status: 'error',
+            message: 'Неправильный ID.'
+        })
+    }
 })
 
 module.exports = router

@@ -3,13 +3,8 @@ import Vuex from 'vuex'
 
 Vue.use(Vuex)
 
+import { AdsModule } from './modules/AdsModule';
+
 export default new Vuex.Store({
-  state: {
-  },
-  mutations: {
-  },
-  actions: {
-  },
-  modules: {
-  }
+    modules: { AdsModule }
 })

@@ -1,0 +1,4 @@
+.link {
+  color: $main-blue;
+  @include default-transition();
+}

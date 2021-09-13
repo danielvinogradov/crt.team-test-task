@@ -6,14 +6,14 @@
 
 <script>
   export default {
-    name: "app-header"
+    name: 'app-header'
   }
 </script>
 
 <style scoped lang="scss">
   .header {
     width: 100%;
-    height: 10vh;
+    height: 5vh;
     background-color: gray;
 
     display: flex;

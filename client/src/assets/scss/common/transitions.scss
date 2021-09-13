@@ -1,0 +1,26 @@
+@mixin default-transition {
+  cursor: pointer;
+  transition: .2s;
+
+  &:hover {
+    opacity: .8;
+  }
+
+  &:active {
+    transition: 0s;
+    opacity: .4;
+  }
+}
+
+@mixin default-link-transition {
+  transition: .2s;
+
+  &:hover {
+    color: $main-blue;
+  }
+
+  &:active {
+    transition: 0s;
+    opacity: .4;
+  }
+}

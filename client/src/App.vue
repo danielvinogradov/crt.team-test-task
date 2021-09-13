@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <component :is="layout">
-      <router-view/>
+      <router-view :key="$route.fullPath"/>
     </component>
   </div>
 </template>
@@ -20,17 +20,4 @@
   }
 </script>
 
-<style lang="scss">
-  #app {
-    font-family: Avenir, Helvetica, Arial, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-align: center;
-    color: #2c3e50;
-  }
-
-  body {
-    margin: 0;
-    padding: 0;
-  }
-</style>
+<style src="@/assets/scss/common/common.scss" lang="scss"></style>

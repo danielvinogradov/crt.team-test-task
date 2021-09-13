@@ -46,9 +46,9 @@ router.get('/', (req, res) => {
  * Обновление статуса лайка на отдельном объявлении
  */
 router.put('/like', (req, res) => {
-    const adID = req.query.hasOwnProperty('id') && req.query.id; // id объявления, которому надо поставить лайк
+    const adID = req.body.hasOwnProperty('id') && req.body.id; // id объявления, которому надо поставить лайк
 
-    if (Math.random() > 0.2) { // Math.random() > 0.2 добавлен, чтобы потестировать ситуацию если сервер вернет ошибку
+    if (Math.random() < 0.2) { // Math.random() > 0.2 добавлен, чтобы потестировать ситуацию если сервер вернет ошибку
         res.status(500).json({
             status: 'error',
             message: 'Ошибка сервера.'
@@ -58,7 +58,7 @@ router.put('/like', (req, res) => {
             status: 'success'
         })
     } else {
-        res.json({
+        res.status(400).json({
             status: 'error',
             message: 'Неправильный ID.'
         })

@@ -6,7 +6,7 @@
 
 <script>
   export default {
-    name: "app-footer"
+    name: 'app-footer'
   }
 </script>
 
@@ -14,7 +14,7 @@
   .footer {
     margin-top: auto;
     width: 100%;
-    height: 10vh;
+    height: 5vh;
     background-color: gray;
 
     display: flex;
